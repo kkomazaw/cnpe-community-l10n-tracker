@@ -13,6 +13,10 @@ const nextConfig = {
   typescript: {
     ignoreBuildErrors: false,
   },
+  // 動的レンダリングを許可（next-intl使用のため）
+  experimental: {
+    dynamicIO: true,
+  },
 };
 
 module.exports = withNextIntl(nextConfig);
