@@ -1,6 +1,6 @@
 -- CreateTable
 CREATE TABLE "Site" (
-    "id" TEXT NOT NULL PRIMARY KEY,
+    "id" TEXT NOT NULL,
     "name" TEXT NOT NULL,
     "repoOwner" TEXT NOT NULL,
     "repoName" TEXT NOT NULL,
@@ -9,41 +9,45 @@ CREATE TABLE "Site" (
     "i18nPath" TEXT NOT NULL,
     "configPath" TEXT,
     "baseLanguage" TEXT NOT NULL DEFAULT 'en',
-    "createdAt" DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
-    "updatedAt" DATETIME NOT NULL
+    "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    "updatedAt" TIMESTAMP(3) NOT NULL,
+
+    CONSTRAINT "Site_pkey" PRIMARY KEY ("id")
 );
 
 -- CreateTable
 CREATE TABLE "Language" (
-    "id" TEXT NOT NULL PRIMARY KEY,
+    "id" TEXT NOT NULL,
     "siteId" TEXT NOT NULL,
     "code" TEXT NOT NULL,
     "name" TEXT NOT NULL,
     "nativeName" TEXT,
     "weight" INTEGER NOT NULL DEFAULT 0,
-    "createdAt" DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
-    "updatedAt" DATETIME NOT NULL,
-    CONSTRAINT "Language_siteId_fkey" FOREIGN KEY ("siteId") REFERENCES "Site" ("id") ON DELETE CASCADE ON UPDATE CASCADE
+    "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    "updatedAt" TIMESTAMP(3) NOT NULL,
+
+    CONSTRAINT "Language_pkey" PRIMARY KEY ("id")
 );
 
 -- CreateTable
 CREATE TABLE "Analysis" (
-    "id" TEXT NOT NULL PRIMARY KEY,
+    "id" TEXT NOT NULL,
     "siteId" TEXT NOT NULL,
     "languageCode" TEXT NOT NULL,
     "totalContentFiles" INTEGER NOT NULL,
     "translatedContentFiles" INTEGER NOT NULL,
-    "contentCompletionRate" REAL NOT NULL,
+    "contentCompletionRate" DOUBLE PRECISION NOT NULL,
     "missingContentFiles" TEXT NOT NULL,
     "totalI18nKeys" INTEGER NOT NULL DEFAULT 0,
     "translatedI18nKeys" INTEGER NOT NULL DEFAULT 0,
-    "i18nCompletionRate" REAL NOT NULL DEFAULT 0.0,
+    "i18nCompletionRate" DOUBLE PRECISION NOT NULL DEFAULT 0.0,
     "missingI18nKeys" TEXT NOT NULL DEFAULT '[]',
     "extraI18nKeys" TEXT NOT NULL DEFAULT '[]',
-    "analyzedAt" DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    "analyzedAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "durationMs" INTEGER,
     "errorMessage" TEXT,
-    CONSTRAINT "Analysis_siteId_fkey" FOREIGN KEY ("siteId") REFERENCES "Site" ("id") ON DELETE CASCADE ON UPDATE CASCADE
+
+    CONSTRAINT "Analysis_pkey" PRIMARY KEY ("id")
 );
 
 -- CreateIndex
@@ -63,3 +67,9 @@ CREATE INDEX "Analysis_siteId_languageCode_idx" ON "Analysis"("siteId", "languag
 
 -- CreateIndex
 CREATE INDEX "Analysis_analyzedAt_idx" ON "Analysis"("analyzedAt");
+
+-- AddForeignKey
+ALTER TABLE "Language" ADD CONSTRAINT "Language_siteId_fkey" FOREIGN KEY ("siteId") REFERENCES "Site"("id") ON DELETE CASCADE ON UPDATE CASCADE;
+
+-- AddForeignKey
+ALTER TABLE "Analysis" ADD CONSTRAINT "Analysis_siteId_fkey" FOREIGN KEY ("siteId") REFERENCES "Site"("id") ON DELETE CASCADE ON UPDATE CASCADE;
