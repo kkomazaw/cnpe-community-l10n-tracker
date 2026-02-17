@@ -1,5 +1,5 @@
 import { NextIntlClientProvider } from 'next-intl';
-import { getMessages } from 'next-intl/server';
+import { getMessages, setRequestLocale } from 'next-intl/server';
 import { notFound } from 'next/navigation';
 import { locales } from '@/i18n';
 import { Toaster } from '@/components/ui/toaster';
@@ -20,6 +20,9 @@ export default async function LocaleLayout({
   if (!locales.includes(locale as any)) {
     notFound();
   }
+
+  // 静的レンダリング対応
+  setRequestLocale(locale);
 
   // メッセージの取得
   const messages = await getMessages();
