@@ -1,0 +1,96 @@
+{
+  "common": {
+    "appName": "L10N Tracker",
+    "loading": "Loading...",
+    "error": "Error",
+    "success": "Success",
+    "save": "Save",
+    "cancel": "Cancel",
+    "delete": "Delete",
+    "edit": "Edit",
+    "create": "Create",
+    "back": "Back",
+    "next": "Next",
+    "previous": "Previous"
+  },
+  "nav": {
+    "home": "Home",
+    "sites": "Sites",
+    "settings": "Settings"
+  },
+  "sites": {
+    "title": "Sites",
+    "description": "Manage sites for L10N analysis",
+    "empty": "No sites registered",
+    "add": "Add Site",
+    "analyze": "Run Analysis",
+    "analyzing": "Analyzing...",
+    "viewDetails": "View Details",
+    "deleteConfirm": "Are you sure you want to delete this site?",
+    "name": "Site Name",
+    "repository": "Repository",
+    "branch": "Branch",
+    "languages": "Languages",
+    "lastAnalyzed": "Last Analyzed",
+    "status": "Status"
+  },
+  "siteDetail": {
+    "title": "Site Details",
+    "overview": "Overview",
+    "analysis": "Analysis Results",
+    "settings": "Settings",
+    "repository": "Repository Information",
+    "contentPath": "Content Path",
+    "i18nPath": "i18n Path",
+    "baseLanguage": "Base Language",
+    "createdAt": "Created At",
+    "updatedAt": "Updated At"
+  },
+  "analysis": {
+    "title": "Analysis Results",
+    "runAnalysis": "Run Analysis",
+    "contentCompletion": "Content Completion",
+    "i18nCompletion": "i18n Completion",
+    "completionRate": "Completion Rate",
+    "missingFiles": "Missing Files",
+    "missingKeys": "Missing Keys",
+    "extraKeys": "Extra Keys",
+    "totalFiles": "Total Files",
+    "translatedFiles": "Translated Files",
+    "totalKeys": "Total Keys",
+    "translatedKeys": "Translated Keys",
+    "noData": "No analysis results",
+    "analyzedAt": "Analyzed At",
+    "duration": "Duration"
+  },
+  "chart": {
+    "contentProgress": "Content Progress",
+    "i18nProgress": "i18n Progress",
+    "overallProgress": "Overall Progress",
+    "byLanguage": "By Language"
+  },
+  "validation": {
+    "required": "This field is required",
+    "invalidFormat": "Invalid format",
+    "duplicateName": "This name is already in use",
+    "repositoryNotFound": "Repository not found",
+    "branchNotFound": "Branch not found"
+  },
+  "error": {
+    "title": "An Error Occurred",
+    "siteNotFound": "Site not found",
+    "analysisFailed": "Analysis failed",
+    "networkError": "Network error occurred",
+    "unknownError": "Unknown error occurred",
+    "retry": "Retry"
+  },
+  "languages": {
+    "en": "English",
+    "ja": "Japanese",
+    "ko": "Korean",
+    "zh": "Chinese",
+    "de": "German",
+    "es": "Spanish",
+    "fr": "French"
+  }
+}

@@ -1,0 +1,96 @@
+{
+  "common": {
+    "appName": "L10N Tracker",
+    "loading": "読み込み中...",
+    "error": "エラー",
+    "success": "成功",
+    "save": "保存",
+    "cancel": "キャンセル",
+    "delete": "削除",
+    "edit": "編集",
+    "create": "作成",
+    "back": "戻る",
+    "next": "次へ",
+    "previous": "前へ"
+  },
+  "nav": {
+    "home": "ホーム",
+    "sites": "サイト一覧",
+    "settings": "設定"
+  },
+  "sites": {
+    "title": "サイト一覧",
+    "description": "L10N分析対象のサイトを管理",
+    "empty": "サイトが登録されていません",
+    "add": "サイトを追加",
+    "analyze": "分析実行",
+    "analyzing": "分析中...",
+    "viewDetails": "詳細を見る",
+    "deleteConfirm": "このサイトを削除しますか？",
+    "name": "サイト名",
+    "repository": "リポジトリ",
+    "branch": "ブランチ",
+    "languages": "言語",
+    "lastAnalyzed": "最終分析日時",
+    "status": "ステータス"
+  },
+  "siteDetail": {
+    "title": "サイト詳細",
+    "overview": "概要",
+    "analysis": "分析結果",
+    "settings": "設定",
+    "repository": "リポジトリ情報",
+    "contentPath": "コンテンツパス",
+    "i18nPath": "i18nパス",
+    "baseLanguage": "基準言語",
+    "createdAt": "作成日時",
+    "updatedAt": "更新日時"
+  },
+  "analysis": {
+    "title": "分析結果",
+    "runAnalysis": "分析を実行",
+    "contentCompletion": "コンテンツ完成率",
+    "i18nCompletion": "i18n完成率",
+    "completionRate": "完成率",
+    "missingFiles": "未翻訳ファイル",
+    "missingKeys": "未翻訳キー",
+    "extraKeys": "余分なキー",
+    "totalFiles": "総ファイル数",
+    "translatedFiles": "翻訳済みファイル",
+    "totalKeys": "総キー数",
+    "translatedKeys": "翻訳済みキー",
+    "noData": "分析結果がありません",
+    "analyzedAt": "分析日時",
+    "duration": "実行時間"
+  },
+  "chart": {
+    "contentProgress": "コンテンツ進捗",
+    "i18nProgress": "i18n進捗",
+    "overallProgress": "全体進捗",
+    "byLanguage": "言語別"
+  },
+  "validation": {
+    "required": "必須項目です",
+    "invalidFormat": "形式が正しくありません",
+    "duplicateName": "この名前は既に使用されています",
+    "repositoryNotFound": "リポジトリが見つかりません",
+    "branchNotFound": "ブランチが見つかりません"
+  },
+  "error": {
+    "title": "エラーが発生しました",
+    "siteNotFound": "サイトが見つかりません",
+    "analysisFailed": "分析に失敗しました",
+    "networkError": "ネットワークエラーが発生しました",
+    "unknownError": "不明なエラーが発生しました",
+    "retry": "再試行"
+  },
+  "languages": {
+    "en": "英語",
+    "ja": "日本語",
+    "ko": "韓国語",
+    "zh": "中国語",
+    "de": "ドイツ語",
+    "es": "スペイン語",
+    "fr": "フランス語"
+  }
+}

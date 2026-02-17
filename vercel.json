@@ -1,0 +1,7 @@
+{
+  "buildCommand": "prisma generate && next build",
+  "installCommand": "npm install",
+  "env": {
+    "GITHUB_TOKEN": "@github_token"
+  }
+}

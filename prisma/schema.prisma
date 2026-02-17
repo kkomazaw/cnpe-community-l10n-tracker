@@ -1,0 +1,80 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// サイト情報
+model Site {
+  id            String   @id @default(cuid())
+  name          String   @unique
+  repoOwner     String
+  repoName      String
+  branch        String   @default("main")
+  contentPath   String   // 例: "website/content"
+  i18nPath      String   // 例: "website/i18n"
+  configPath    String?  // 例: "website/config.toml"
+  baseLanguage  String   @default("en")
+
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+
+  languages     Language[]
+  analyses      Analysis[]
+
+  @@index([repoOwner, repoName])
+}
+
+// 対象言語
+model Language {
+  id            String   @id @default(cuid())
+  siteId        String
+  code          String   // 例: "ja", "ko", "zh"
+  name          String   // 例: "日本語", "한국어", "中文"
+  nativeName    String?  // ネイティブ表記
+  weight        Int      @default(0) // 表示順
+
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+
+  site          Site     @relation(fields: [siteId], references: [id], onDelete: Cascade)
+
+  @@unique([siteId, code])
+  @@index([siteId])
+}
+
+// 分析結果
+model Analysis {
+  id                      String   @id @default(cuid())
+  siteId                  String
+  languageCode            String
+
+  // コンテンツファイル分析結果
+  totalContentFiles       Int
+  translatedContentFiles  Int
+  contentCompletionRate   Float    // 0.0 - 100.0
+  missingContentFiles     String   // JSON string array
+
+  // i18n分析結果
+  totalI18nKeys           Int      @default(0)
+  translatedI18nKeys      Int      @default(0)
+  i18nCompletionRate      Float    @default(0.0)
+  missingI18nKeys         String   @default("[]") // JSON string array
+  extraI18nKeys           String   @default("[]") // JSON string array
+
+  // メタ情報
+  analyzedAt              DateTime @default(now())
+  durationMs              Int?     // 分析にかかった時間(ms)
+  errorMessage            String?  // エラーがあった場合
+
+  site                    Site     @relation(fields: [siteId], references: [id], onDelete: Cascade)
+
+  @@index([siteId, languageCode])
+  @@index([analyzedAt])
+}
