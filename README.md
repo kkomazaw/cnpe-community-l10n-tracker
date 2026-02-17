@@ -29,11 +29,11 @@ GitHubリポジトリでメンテナンスされている多言語Webサイト�
 
 | ドキュメント | 説明 |
 |------------|------|
-| [REQUIREMENTS.md](./REQUIREMENTS.md) | 要件定義書 (初版) |
-| [DETAILED_REQUIREMENTS.md](./DETAILED_REQUIREMENTS.md) | 詳細要件定義書 (ヒアリング結果版) |
-| [TECHNICAL_DESIGN.md](./TECHNICAL_DESIGN.md) | 技術設計書 (アーキテクチャ、API、コンポーネント) |
-| [TYPE_DEFINITIONS.md](./TYPE_DEFINITIONS.md) | TypeScript型定義一覧 |
-| [DEPLOYMENT.md](./DEPLOYMENT.md) | **Vercelデプロイガイド（クラウドホスティング）** |
+| [REQUIREMENTS.md](./docs/REQUIREMENTS.md) | 要件定義書 (初版) |
+| [DETAILED_REQUIREMENTS.md](./docs/DETAILED_REQUIREMENTS.md) | 詳細要件定義書 (ヒアリング結果版) |
+| [TECHNICAL_DESIGN.md](./docs/TECHNICAL_DESIGN.md) | 技術設計書 (アーキテクチャ、API、コンポーネント) |
+| [TYPE_DEFINITIONS.md](./docs/TYPE_DEFINITIONS.md) | TypeScript型定義一覧 |
+| [DEPLOYMENT.md](./docs/DEPLOYMENT.md) | **Vercelデプロイガイド（クラウドホスティング）** |
 
 ---
 
@@ -70,7 +70,7 @@ GitHubリポジトリでメンテナンスされている多言語Webサイト�
 3. 環境変数 `GITHUB_TOKEN` を設定
 4. デプロイ完了！
 
-詳細は [DEPLOYMENT.md](./DEPLOYMENT.md) を参照してください。
+詳細は [DEPLOYMENT.md](./docs/DEPLOYMENT.md) を参照してください。
 
 ---
 
@@ -169,7 +169,7 @@ cnpe-community-l10n-tracker/
 | GET | `/api/sites/:id/analysis` | 最新分析結果取得 |
 | GET | `/api/sites/:id/export` | CSV出力 |
 
-詳細は [TECHNICAL_DESIGN.md](./TECHNICAL_DESIGN.md#3-api設計) を参照
+詳細は [TECHNICAL_DESIGN.md](./docs/TECHNICAL_DESIGN.md#3-api設計) を参照
 
 ---
 
@@ -217,7 +217,7 @@ npm test
 - **Language**: 対象言語 (コード、名前、表示順)
 - **Analysis**: 分析結果 (翻訳率、未翻訳ファイル、i18nキー等)
 
-詳細は [TECHNICAL_DESIGN.md](./TECHNICAL_DESIGN.md#2-データベース設計) を参照
+詳細は [TECHNICAL_DESIGN.md](./docs/TECHNICAL_DESIGN.md#2-データベース設計) を参照
 
 ---
 
@@ -253,7 +253,7 @@ DATABASE_URL=postgres://username:password@hostname:5432/database?sslmode=require
 NODE_ENV=production
 ```
 
-詳細は [DEPLOYMENT.md](./DEPLOYMENT.md#4-環境変数の設定) を参照してください。
+詳細は [DEPLOYMENT.md](./docs/DEPLOYMENT.md#4-環境変数の設定) を参照してください。
 
 ---
 
